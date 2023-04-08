@@ -1,6 +1,13 @@
 import { parseArgs } from 'node:util';
 
-const options = {
+interface Option {
+    type: 'string' | 'boolean';
+    short: string;
+    description: string;
+    default?: string | boolean | string[] | boolean[];
+}
+
+const options: Record<string, Option> = {
     message: {
         type: 'string',
         short: 'm',
@@ -38,17 +45,18 @@ const options = {
         description:
             'whether the search for the given text should be case sensitive',
     },
-} as const;
+};
 
 function getArgumentHelp() {
-    return Object.keys(options)
-        .map((key) => {
-            // @ts-ignore
-            const value = options[key];
-            return `--${key}, -${value.short}: ${value.description}${
-                value.default !== undefined ? `, default: ${value.default}` : ''
-            }`;
-        })
+    return Object.entries(options)
+        .map(
+            ([key, value]) =>
+                `--${key}, -${value.short}: ${value.description}${
+                    value.default !== undefined
+                        ? `, default: ${value.default}`
+                        : ''
+                }`
+        )
         .join('\n');
 }
 
