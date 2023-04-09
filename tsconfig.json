@@ -7,18 +7,15 @@
         "skipLibCheck": true,
         "strict": true,
         "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
         "esModuleInterop": true,
         "module": "esnext",
-        "moduleResolution": "node",
+        "moduleResolution": "nodenext",
         "resolveJsonModule": true,
         "isolatedModules": true,
         "incremental": true,
         "noUncheckedIndexedAccess": true,
-        "baseUrl": ".",
-        "paths": {
-            "@*": ["./src/*"]
-        }
+        "outDir": "build",
+        "baseUrl": "."
     },
     "include": ["**/*.ts"],
     "exclude": ["node_modules"]

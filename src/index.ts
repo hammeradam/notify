@@ -1,6 +1,6 @@
-import { getArguments } from '@lib/args';
-import { loadEnv } from '@lib/env';
-import { findTextInPage } from '@lib/find';
+import { getArguments } from './lib/args.js';
+import { loadEnv } from './lib/env.js';
+import { findTextInPage } from './lib/find.js';
 
 const { url, text, caseInsensitive, message, phone, email, subject } =
     getArguments();
@@ -18,7 +18,7 @@ const result = await findTextInPage({
 
 if (result) {
     if (phone) {
-        const { sendSms } = await import('./lib/sms');
+        const { sendSms } = await import('./lib/sms.js');
 
         sendSms({
             to: phone,
@@ -27,7 +27,7 @@ if (result) {
     }
 
     if (email) {
-        const { sendMail } = await import('./lib/mail');
+        const { sendMail } = await import('./lib/mail.js');
 
         sendMail({
             fromEmail: 'hello@adamhammer.xyz',

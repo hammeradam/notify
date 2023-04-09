@@ -6,7 +6,8 @@
     "main": "src/index.ts",
     "scripts": {
         "start": "tsx ./src/index.ts",
-        "dev": "tsx watch ./src/index.ts"
+        "dev": "tsx watch ./src/index.ts",
+        "build": "tsc"
     },
     "keywords": [],
     "author": "Adam Hammer",
@@ -19,6 +20,7 @@
     "devDependencies": {
         "@types/node": "^18.15.11",
         "@types/nodemailer": "^6.4.7",
-        "tsx": "^3.12.6"
+        "tsx": "^3.12.6",
+        "typescript": "^5.0.4"
     }
 }
